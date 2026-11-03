@@ -5,9 +5,11 @@ import java.util.Scanner;
 public class App {
     public static void main(String[] args) {
 
+        //입력을 위한 Scanner 및 Calculator 객체 생성
         Scanner sc = new Scanner(System.in);
         Calculator calculator = new Calculator();
 
+        // exit 입력 전까지 계산 반복
         while(true)
         {
             System.out.println("첫번쨰 수를 입력하세요 : ");
@@ -37,11 +39,13 @@ public class App {
                 continue;
             }
 
+            // Calculator에 계산을 요청하고 반환된 결과를 출력
             double result = calculator.calculate(number1,number2,operator);
             System.out.println("값 : " + result);
             System.out.println("현재 저장된 값 : " + calculator.getResults());
 
 
+            // yes 입력 시 가장 먼저 저장된 계산 결과 삭제
             System.out.println("삭제하려면 yes를 입력하세요. 계속진행하시려면 아무키나 누르세요. ");
             String oper1 = sc.next();
             if(oper1.equals("yes")){

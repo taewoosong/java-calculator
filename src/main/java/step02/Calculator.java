@@ -6,7 +6,7 @@ public class Calculator {
     // 계산 결과를 순서대로 저장하는 컬렉션
     private ArrayList<Double> results = new ArrayList<>();
 
-    public double calculate(int number1, int number2 , char operator)
+    public double calculate(double number1, double number2 , char operator)
     {
         double result = 0;
 
@@ -26,7 +26,7 @@ public class Calculator {
                 result = number1 * number2;
                 break;
             case '/':
-                result = (double)number1 / number2;
+                result = number1 / number2;
                 break;
             default:
                 System.out.println("연산자를 잘못입력하셨습니다 다시입력하세요 .");
@@ -52,5 +52,17 @@ public class Calculator {
     // 외부에서 전달받은 리스트로 기존 계산 결과 목록을 교체하는 Setter
     public void setResults(ArrayList<Double> results) {
         this.results = results;
+    }
+
+    // 입력받은 기준값보다 큰 계산 결과만 조회
+    public ArrayList<Double> getResults2(double value){
+        ArrayList<Double> results2 = new ArrayList<>();
+        for(int i=0; i < results.size(); i++)
+        {
+            if(results.get(i) > value){
+                results2.add(results.get(i));
+            }
+        }
+        return results2;
     }
 }

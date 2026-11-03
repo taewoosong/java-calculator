@@ -13,14 +13,14 @@ public class App {
         while(true)
         {
             System.out.println("첫번쨰 수를 입력하세요 : ");
-            int number1 = sc.nextInt();
+            double number1 = sc.nextDouble();
             System.out.println("두번쨰 수를 입력하세요 : ");
-            int number2 = sc.nextInt();
+            double number2 = sc.nextDouble();
 
             //음수 검사
             if(number1 < 0 || number2 < 0)
             {
-                System.out.println("0을 포함한 양의 정수만 입력 가능합니다.");
+                System.out.println("0 이상의 숫자만 입력 가능합니다.");
                 continue;
             }
 
@@ -32,7 +32,6 @@ public class App {
                 System.out.println("잘못입력하셨습니다. 다시입력하세요.");
                 continue;
             }
-
 
             if(operator == '/' && number2 == 0){
                 System.out.println("0으로 나눌수 없습니다 다시입력하세요.");
@@ -54,10 +53,21 @@ public class App {
             }
             System.out.println("현재 저장된 값 : " + calculator.getResults());
 
-            System.out.println("종료하려면 exit을 입력하세요. (다시시작은 아무키나 누르세요.)");
+            // 입력받은 기준값보다 큰 계산 결과만 조회하여 반환
+            System.out.println("기준값보다 큰 결과를 조회하시겠습니까?(yes), 다시시작은 아무키나 누르세요.");
             String oper2 = sc.next();
+            if(oper2.equals("yes")){
+                System.out.println("기준값을 입력하세요 : ");
+                double Standard = sc.nextDouble();
 
-            if(oper2.equals("exit")){
+                System.out.println("기준보다 큰 값: " +
+                        calculator.getResults2(Standard));
+            }
+
+            System.out.println("종료하려면 exit을 입력하세요. (다시시작은 아무키나 누르세요.)");
+            String oper3 = sc.next();
+
+            if(oper3.equals("exit")){
                 System.out.println("계산기를종료합니다.");
                 break;
             }
